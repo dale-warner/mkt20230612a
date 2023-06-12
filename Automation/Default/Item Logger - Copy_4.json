@@ -1,0 +1,44 @@
+{
+  "ApiId": "b6411b942bd046fd5a6f75",
+  "ContextPortal": 0,
+  "IsDebug": false,
+  "IsEnabled": true,
+  "Name": "Item Logger - Copy",
+  "Triggers": [
+    {
+      "IsEnabled": true,
+      "TriggerDefId": "OnDbInsert",
+      "Parameters": {
+        "TableName": {
+          "Value": "app.Item",
+          "IsExpression": false,
+          "Expression": null
+        }
+      }
+    }
+  ],
+  "Actions": [
+    {
+      "ActionType": "LogEvent",
+      "Description": "Untitled Action",
+      "ExecutionType": "OnExecute",
+      "OrderIndex": 0,
+      "IsDisabled": false,
+      "Parameters": {
+        "EventType": {
+          "Value": null,
+          "IsExpression": false,
+          "Expression": null
+        },
+        "UserID": "",
+        "LogProperties": [
+          {
+            "name": "There is a new item",
+            "value": "but we don't know the id"
+          }
+        ]
+      }
+    }
+  ],
+  "OnErrorActions": []
+}
