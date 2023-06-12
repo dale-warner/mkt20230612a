@@ -1,0 +1,91 @@
+{
+  "Name": "Test2",
+  "Description": "Creates a new record of type Test2",
+  "HttpMethod": "POST",
+  "IsEnabled": true,
+  "OrderIndex": 6,
+  "CrossDomainPolicy": "PortalAliasesOnly",
+  "Input": [
+    {
+      "Name": "controlNumber",
+      "IsDeleted": false,
+      "IsEnabled": true,
+      "OrderIndex": 0,
+      "Parameters": {},
+      "InputTypeStr": "text",
+      "Validations": [
+        {
+          "Data": "{\"Message\":\"controlNumber is required.\"}",
+          "Type": "default-required",
+          "IsDeleted": false,
+          "IsEnabled": false,
+          "OrderIndex": 0,
+          "Metadata": {
+            "PAP_InternalIdentifier": "Api.InputField.RequiredValidator"
+          }
+        }
+      ]
+    }
+  ],
+  "Actions": [
+    {
+      "ActionType": "PlantAnApp.CreateEntity.e70bd5c7-2e75-468b-9a3e-9bafbcff4b54",
+      "OrderIndex": 0,
+      "Parameters": {
+        "OutputToken": "CreatedRecordId",
+        "controlNumber": "[controlNumber]"
+      },
+      "IsDisabled": false,
+      "ExecutionType": "OnExecute",
+      "Metadata": {
+        "PAP_InternalIdentifier": "Api.CreateEntity",
+        "EntityIdentifier": "e70bd5c7-2e75-468b-9a3e-9bafbcff4b54",
+        "IsUidEnabled": "True"
+      }
+    },
+    {
+      "ActionType": "PlantAnApp.ReadEntity.e70bd5c7-2e75-468b-9a3e-9bafbcff4b54",
+      "OrderIndex": 1,
+      "Parameters": {
+        "RecordId": "[CreatedRecordId]",
+        "OutputToken": "CreatedRecord"
+      },
+      "IsDisabled": false,
+      "ExecutionType": "OnExecute",
+      "Metadata": {
+        "PAP_InternalIdentifier": "Api.ReadEntity",
+        "EntityIdentifier": "e70bd5c7-2e75-468b-9a3e-9bafbcff4b54",
+        "IsUidEnabled": "True"
+      }
+    },
+    {
+      "ActionType": "JsonObject",
+      "OrderIndex": 2,
+      "Parameters": {
+        "HttpCode": "201 Created",
+        "Fields": [
+          {
+            "name": "Id",
+            "value": "[CreatedRecordId]"
+          },
+          {
+            "name": "controlNumber",
+            "value": "[CreatedRecord:controlNumber]"
+          }
+        ],
+        "Headers": [
+          {
+            "name": "Location",
+            "value": "http://clone-mkt202306-create.apps.plantanapp.com/api/Test2?recordId=[CreatedRecordId]"
+          }
+        ]
+      },
+      "IsDisabled": false,
+      "ExecutionType": "OnExecute",
+      "Metadata": {
+        "PAP_InternalIdentifier": "Api.Response"
+      }
+    }
+  ],
+  "OnErrorActions": []
+}
