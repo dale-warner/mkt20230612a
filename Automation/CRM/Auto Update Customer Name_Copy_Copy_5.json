@@ -1,0 +1,35 @@
+{
+  "ApiId": "b1487b9d854e871871c297",
+  "ContextPortal": 0,
+  "ContextUser": 1,
+  "IsDebug": false,
+  "IsEnabled": true,
+  "Name": "Auto Update Customer Name_Copy_Copy",
+  "Triggers": [
+    {
+      "IsEnabled": true,
+      "TriggerDefId": "OnDbInsert",
+      "Parameters": {
+        "TableName": {
+          "Value": "app.Customer",
+          "IsExpression": false,
+          "Expression": null
+        }
+      }
+    }
+  ],
+  "Actions": [
+    {
+      "ActionType": "PlantAnApp.ExecuteWorkflow.7c7abc83d67f4f60bab4d91bb8ff2668",
+      "Description": "Untitled Action",
+      "ExecutionType": "OnExecute",
+      "OrderIndex": 0,
+      "IsDisabled": false,
+      "Parameters": {
+        "Customer": "[id]",
+        "debug": ""
+      }
+    }
+  ],
+  "OnErrorActions": []
+}

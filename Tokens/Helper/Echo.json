@@ -1,0 +1,21 @@
+{
+  "id": 21,
+  "globalId": "a3a0bf11-a876-47da-9a4f-1bdbd0138611",
+  "namespace": {
+    "id": 4,
+    "globalId": "f53b5a39-8bd6-4558-bf70-e81c3b637d17",
+    "portalId": 0,
+    "name": "Helper",
+    "isSystem": false
+  },
+  "name": "Echo",
+  "description": "",
+  "parser": "<parser><type>string</type><replace>false</replace><decodeHtml>false</decodeHtml></parser>",
+  "defaultValue": "",
+  "cacheTime": 0,
+  "cacheLayer": "Global",
+  "src": {
+    "value": "The input value was \"[TknParams:Input]\".",
+    "type": "string"
+  }
+}
